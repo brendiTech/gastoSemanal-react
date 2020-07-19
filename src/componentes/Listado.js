@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Gasto from './Gasto';
+import PropTypes from 'prop-types';
 
 class Listado extends Component {
 
@@ -10,6 +11,7 @@ class Listado extends Component {
                 {console.log(this.props.gastos)}
                 {Object.keys(this.props.gastos).map(key=>(
                     <Gasto
+                    key={key}
                     gasto={this.props.gastos[key]}
                     />
                 ))}
@@ -17,6 +19,10 @@ class Listado extends Component {
         )
     }
 
+}
+
+Listado.propTypes = {
+    gastos: PropTypes.object.isRequired
 }
 
 export default Listado;
